@@ -32,10 +32,18 @@
 
         title.innerHTML = `i${i}.svg`
         box.appendChild(title)
+        let a = document.createElement("a")
+        let src = "./i" + i + ".svg"
+        a.setAttribute("target", "_blank")
+        a.setAttribute("href", src)
+        
+
         let node = document.createElement('img')
-        node.src = "./i" + i + ".svg"
+
+        node.src = src
         node.className = "icon"
-        box.appendChild(node)
+        a.appendChild(node)
+        box.appendChild(a)
         document.body.appendChild(box)
     }
 </script>
