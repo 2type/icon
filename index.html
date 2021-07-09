@@ -12,31 +12,28 @@
             position: relative;
             padding-top: -0.3em;
         }
-        div span {
-            font-size: 12px;
-            display: block;
-            width:100%;
-            position: absolute;
-            top:0em;
-            text-align: center;
-            left:0;
-        }
+        
         .icon{font-size:1em;margin:.4em;}
     </style>
 </head>
 <body>
 <script>
-    for (i=1;i<270;i++) {
+    let data =  [
+        {
+            name: "logo",
+        }
+    ]
+    data.forEach((item, i) => {
         let box = document.createElement('div')
         let title = document.createElement('span')
 
-        title.innerHTML = `i${i}.svg`
+        title.innerHTML = `${item.name}.svg`
         box.appendChild(title)
         let a = document.createElement("a")
-        let src = "./i" + i + ".svg"
+        let src = "./" + item.name + ".svg"
         a.setAttribute("target", "_blank")
         a.setAttribute("href", src)
-        
+
 
         let node = document.createElement('img')
 
@@ -45,7 +42,9 @@
         a.appendChild(node)
         box.appendChild(a)
         document.body.appendChild(box)
-    }
+    });
+
+
 </script>
 </body>
 </html>
