@@ -11,23 +11,42 @@
             display: inline-block;
             position: relative;
             padding-top: -0.3em;
+            text-align: center;
+            padding: .2em;
         }
-        
-        .icon{font-size:1em;margin:.4em;}
+        span {
+            font-size:12px;
+            color:gray;
+        }
+        .icon{
+            display: block;
+            width:2em;
+        }
+
     </style>
 </head>
 <body>
 <script>
     let data =  [
-        {
-            name: "logo",
-        }
+        "logo",
+        'display',
+        'qrcode',
+        'scan-qrcode',
+        '',
+        "dusty-blue/exit", "dusty-blue/chart", 'dusty-blue/settings'
     ]
     data.forEach((item, i) => {
+        if (item == '') {
+            document.body.appendChild(document.createElement('hr'))
+            return
+        }
+        item = {
+            name: item
+        }
         let box = document.createElement('div')
         let title = document.createElement('span')
 
-        title.innerHTML = `${item.name}.svg`
+        title.innerHTML = `${item.name}`
         box.appendChild(title)
         let a = document.createElement("a")
         let src = "./" + item.name + ".svg"
