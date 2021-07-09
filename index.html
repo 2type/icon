@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图标</title>
+    <style>
+        div {
+            display: inline-block;
+            position: relative;
+            padding-top: -0.3em;
+        }
+        div span {
+            font-size: 12px;
+            display: block;
+            width:100%;
+            position: absolute;
+            top:0em;
+            text-align: center;
+            left:0;
+        }
+        .icon{font-size:1em;margin:.4em;}
+    </style>
+</head>
+<body>
+<script>
+    for (i=1;i<270;i++) {
+        let box = document.createElement('div')
+        let title = document.createElement('span')
+
+        title.innerHTML = `i${i}.svg`
+        box.appendChild(title)
+        let node = document.createElement('img')
+        node.src = "./i" + i + ".svg"
+        node.className = "icon"
+        box.appendChild(node)
+        document.body.appendChild(box)
+    }
+</script>
+</body>
+</html>
