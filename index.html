@@ -13,13 +13,17 @@
             padding-top: -0.3em;
             text-align: center;
             padding: .2em;
+            width:5em;
         }
-        span {
+        pre{
+            display: inline-block;
             font-size:12px;
             color:gray;
         }
         .icon{
             display: block;
+            margin-left: auto;
+            margin-right: auto;
             width:2em;
         }
 
@@ -34,7 +38,7 @@
         'scan',
         'game',
         '',
-        "dusty-blue/exit", "dusty-blue/chart", 'dusty-blue/settings'
+        "dusty-blue/23hour2", "dusty-blue/24hour", "dusty-blue/aether", "dusty-blue/alert", "dusty-blue/bank_card", "dusty-blue/book", "dusty-blue/certificate", "dusty-blue/certificate2", "dusty-blue/chart", "dusty-blue/chart2", "dusty-blue/circulation", "dusty-blue/close", "dusty-blue/cloud", "dusty-blue/cooperation", "dusty-blue/correct", "dusty-blue/cpu", "dusty-blue/decline", "dusty-blue/dialogue", "dusty-blue/download", "dusty-blue/earnings", "dusty-blue/earnings3", "dusty-blue/earth", "dusty-blue/email", "dusty-blue/email2", "dusty-blue/exit", "dusty-blue/express", "dusty-blue/fingerprint", "dusty-blue/group", "dusty-blue/huabanfuben", "dusty-blue/idea", "dusty-blue/idea2", "dusty-blue/input_password", "dusty-blue/judgment", "dusty-blue/leader", "dusty-blue/lock", "dusty-blue/meet", "dusty-blue/meeting2", "dusty-blue/money", "dusty-blue/new", "dusty-blue/phone_card", "dusty-blue/plane", "dusty-blue/post", "dusty-blue/print", "dusty-blue/print2", "dusty-blue/puzzle", "dusty-blue/receive", "dusty-blue/recycle", "dusty-blue/rise", "dusty-blue/rocket", "dusty-blue/sale", "dusty-blue/search", "dusty-blue/settings", "dusty-blue/shopping_car", "dusty-blue/sms", "dusty-blue/speech", "dusty-blue/speech2", "dusty-blue/stock_market", "dusty-blue/store", "dusty-blue/store2", "dusty-blue/target", "dusty-blue/tel", "dusty-blue/travel", "dusty-blue/trucks",
     ]
     data.forEach((item, i) => {
         if (item == '') {
@@ -45,22 +49,25 @@
             name: item
         }
         let box = document.createElement('div')
-        let title = document.createElement('span')
 
-        title.innerHTML = `${item.name}`
-        box.appendChild(title)
         let a = document.createElement("a")
+        let title = document.createElement('pre')
+
+        title.innerHTML = `${item.name.replace('/', '/\r\n')}`
+
         let src = "./" + item.name + ".svg"
         a.setAttribute("target", "_blank")
         a.setAttribute("href", src)
 
+        
+        let img = document.createElement('img')
 
-        let node = document.createElement('img')
-
-        node.src = src
-        node.className = "icon"
-        a.appendChild(node)
+        img.src = src
+        img.className = "icon"
+        a.appendChild(img)
+        
         box.appendChild(a)
+        box.appendChild(title)
         document.body.appendChild(box)
     });
 
